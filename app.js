@@ -87,9 +87,13 @@ function validateAnswer() {
 
 function showAlert(message, type) {
   const alertDiv = document.createElement('div');
-  alertDiv.classList.add('alert', 'alert-' + type);
+  alertDiv.classList.add('alert', 'alert-' + type, 'alert-dismissible', 'fade', 'show');
   alertDiv.setAttribute('role', 'alert');
-  alertDiv.innerText = message;
+
+  alertDiv.innerHTML = `
+    ${message}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  `;
 
   const messageDiv = document.getElementById('message');
   messageDiv.innerHTML = '';
@@ -118,8 +122,26 @@ function showStats() {
 
   const remainingQuestions = questions.length - totalQuestions;
   const currentQuestionNumber = totalQuestions + 1;
-  document.getElementById('question-counter').innerText = `Pregunta ${currentQuestionNumber} de ${questions.length}, quedan ${remainingQuestions}`;
+  document.getElementById('question-counter').innerText = `Pregunta ${currentQuestionNumber} de ${questions.length}`;
 }
+
+document.getElementById('answer').addEventListener('keydown', function (event) {
+  if (event.key === 'Enter') {
+    return;
+  }
+  let keyCombination = '';
+
+  if (event.ctrlKey) keyCombination += 'Ctrl + ';
+  if (event.altKey) keyCombination += 'Alt + ';
+  if (event.shiftKey) keyCombination += 'Shift + ';
+
+  keyCombination += event.key;
+
+  event.target.value = keyCombination;
+
+  // Prevenir el comportamiento predeterminado para evitar que la combinación de teclas se inserte en el campo
+  event.preventDefault();
+});
 
 document.getElementById('answer').addEventListener('keypress', function (event) {
   if (event.key === 'Enter') {

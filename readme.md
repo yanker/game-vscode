@@ -7,8 +7,13 @@ yo: 30 minutos
 ## Issues
 - [x] Agregar un contador de numero de preguntas
 - [x] Agregar alertsmsg de bootstrap con la respuesta
-- [ ] Hacer que se escriba la combinacion de teclado
+- [x] Hacer que se escriba la combinacion de teclado
 - [x] Quitar alert de pantalla y mostrar mensaje alert de bootstrap
 - [x] Agregar PDF de shortkuts
-- [ ] Agregar preguntas según sistema operativo
 - [x] Si no ingresa respuesta que no cambie de pregunta
+- [x] Agregar Dismissing  Alert 
+- [x] Ocultar botón Validar en pantalla web y mostrarlo solo en moviles
+
+- [ ] Agregar preguntas según sistema operativo
+- [ ] Adaptar para móviles la combinación de teclas, mostrando un boton especifico por cada tecla especial
+
