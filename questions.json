@@ -1,7 +1,18 @@
 [
-  { "question": "¿Cuál es la capital de Francia?", "answer": "París" },
-  { "question": "¿Cuál es el idioma oficial de Brasil?", "answer": "Portugués" },
-  { "question": "¿Quién escribió 'Cien años de soledad'?", "answer": "Gabriel García Márquez" },
-  { "question": "¿Cuál es el planeta más grande del sistema solar?", "answer": "Júpiter" },
-  { "question": "¿En qué año llegó el hombre a la luna?", "answer": "1969" }
+  { "question": "Muestra la paleta de comandos", "answer": "Ctrl + Shift + P" },
+  { "question": "Abrir Rápidamente,Ir la Fichero…", "answer": "Ctrl + P" },
+  { "question": "Nueva ventana/instancia", "answer": "Ctrl + Shift + N" },
+  { "question": "Cerrar ventanada/instancia", "answer": "Ctrl + Shift + W" },
+  { "question": "Configuración de Usuario", "answer": "Ctrl + ," },
+  { "question": "Atajos de Teclado", "answer": "Ctrl + K Ctrl + S" },
+  { "question": "Ir a la Línea... ", "answer": "Ctrl + G" },
+  { "question": "Ir al Fichero...", "answer": "Ctrl + P" },
+  { "question": "Ir a ciertas lineas del código autodefinidas... ", "answer": "Ctrl + Shift + O" },
+  { "question": "Muestra el panel de errores en el código", "answer": "Ctrl + Shift + M" },
+  { "question": "Va a la línea del error o warning", "answer": "F8" },
+  { "question": "Va a la línea del anterior del error o warning", "answer": "Shift + F8" },
+  { "question": "Abrir sugerencias de codificación", "answer": "Ctrl + Space" },
+  { "question": "Cerrar Editor", "answer": "Ctrl + F4, Ctrl + W" },
+  { "question": "Dividir Editor", "answer": "Ctrl + /" },
+  { "question": "Abre un cuadro de dialogo de CODEIUM", "answer": "Ctrl + i" }
 ]

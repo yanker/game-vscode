@@ -56,29 +56,44 @@
             </div>
         </div>
     </nav>
-    
+
     <div class="container" id="juego">
         <div class="jumbotron m-1">
             <h1 class="display-4 text-primary mt-4 mb-2">Bienvenido al Juego ShortCuts VSCODE</h1>
         </div>
-    
+
         <div class="card m-1">
             <div class="card-body">
                 <h5 class="card-title"><strong>Instrucciones</strong></h5>
                 <p class="card-text">Se generarán preguntas aleatorias sobre los atajos de teclado de Visual Studio Code. Escribe tu respuesta y valida si es correcta.</p>
             </div>
         </div>
-    
+
         <div class="row">
             <div class="col-md-6">
                 <div class="card m-1">
                     <div class="card-body">
                         <h5 class="card-title"><strong>Pregunta</strong></h5>
                         <h4 class="card-text text-primary" id="question">Haz clic en el botón para obtener una pregunta.</h4>
-                        <!-- Input Text-->
-                        <input type="text" id="answer" class="form-control mb-3" placeholder="Escribe tu respuesta aquí">
-<!-- Validar Respuesta-->
-<button class="btn btn-primary d-lg-none" onclick="validateAnswer()">Validar Respuesta</button>
+                        <!-- Input Textbox -->
+                        <input type="text" id="answer" class="form-control mb-3" placeholder="Escribe tu respuesta aquí y pulsa ENTER">
+                        <!-- Validar Respuesta-->
+                        <button class="btn btn-success d-lg-none float-end ms-1" onclick="validateAnswer()">Validar Respuesta</button>
+                        <!-- Limpiar Textbox-->
+                        <button type="button" class="btn btn-primary btn-value float-end" value="">Limpiar</button>
+                        <div class="clearfix"></div>
+                        <!-- Botones de Teclas -->
+                        <strong>Teclas Especiales</strong>
+                        <div class="col-12">
+                            <button type="button" class="btn btn-secondary btn-value" value="Ctrl + ">Ctrl</button>
+                            <button type="button" class="btn btn-secondary btn-value" value="Alt + ">Alt</button>
+                            <button type="button" class="btn btn-secondary btn-value" value="Shift + ">Shift</button>
+                            <button type="button" class="btn btn-secondary btn-value" value="Tab + ">Tab</button>
+                            <!-- <button type="button" class="btn btn-secondary btn-value" value="Escape + ">Escape</button>
+                                                                                                                                                    <button type="button" class="btn btn-secondary btn-value" value="Backspace + ">Backspace</button>
+                                                                                                                                                    <button type="button" class="btn btn-secondary btn-value" value="Enter + ">Enter</button>
+                                                                                                                                                    <button type="button" class="btn btn-secondary btn-value" value="Space + ">Space</button> -->
+                        </div>
                         <h5 class="float-end">
                             <p id="question-counter">Pregunta 1</p>
                         </h5>
@@ -94,36 +109,36 @@
                             <p id="correct" class="text-success"><strong>Respuestas correctas: 0</strong></p>
                             <p id="incorrect" class="text-danger"><strong>Respuestas incorrectas: 0</strong></p>
                             <p id="accuracy" class="text-primary"><strong>Porcentaje de acierto: 0%</strong></p>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            <div id="instrucciones" class="container mt-5" style="display: none;">
-                                <h1 class="text-primary">Instrucciones - Juego de Atajos de Teclado de VSCODE</h1>
-                                <div class="mt-5">
-                                    <p>¡Bienvenido al desafío de atajos de teclado de VSCODE! Este juego pondrá a prueba tu conocimiento sobre los atajos de teclado más útiles de Visual Studio Code.</p>
-                                    <h3><strong>Cómo jugar:</strong></h3>
-                                    <ul>
-                                        <li>Se te presentará una serie de preguntas sobre atajos de teclado de VSCODE.</li>
-                                        <li>Selecciona la respuesta que creas que es correcta haciendo clic en ella.</li>
-                                        <li>Intenta responder correctamente tantas preguntas como puedas para obtener la puntuación más alta posible.</li>
-                                    </ul>
-                                    <h3><strong>Estructura del juego:</strong></h3>
-                                    <ul>
-                                        <li>El juego consta de varias rondas de preguntas.</li>
-                                        <li>Cada ronda incluirá una pregunta aleatoria sobre un atajo de teclado de VSCODE.</li>
-                                        <li>Después de seleccionar una respuesta, recibirás retroalimentación inmediata sobre si tu respuesta fue correcta o incorrecta.</li>
-                                        <li>Al final de cada ronda, se mostrará tu puntaje actual y podrás ver tu estadística de aciertos hasta ese momento.</li>
-                                    </ul>
-                                    <h3><strong>Finalización del juego:</strong></h3>
-                                    <ul>
-                                        <li>El juego continúa hasta que decidas salir.</li>
-                                        <li>Puedes salir del juego en cualquier momento y ver tu puntaje final junto con tu estadística de aciertos.</li>
-                                        <li>Intenta superar tu propio récord cada vez que juegues.</li>
-                                    </ul>
-                                    <h2>¡Disfruta el juego y diviértete aprendiendo los atajos de teclado de VSCODE!</h2>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        <div id="instrucciones" class="container mt-5" style="display: none;">
+                            <h1 class="text-primary">Instrucciones - Juego de Atajos de Teclado de VSCODE</h1>
+                            <div class="mt-5">
+                                <p>¡Bienvenido al desafío de atajos de teclado de VSCODE! Este juego pondrá a prueba tu conocimiento sobre los atajos de teclado más útiles de Visual Studio Code.</p>
+                                <h3><strong>Cómo jugar:</strong></h3>
+                                <ul>
+                                    <li>Se te presentará una serie de preguntas sobre atajos de teclado de VSCODE.</li>
+                                    <li>Selecciona la respuesta que creas que es correcta haciendo clic en ella.</li>
+                                    <li>Intenta responder correctamente tantas preguntas como puedas para obtener la puntuación más alta posible.</li>
+                                </ul>
+                                <h3><strong>Estructura del juego:</strong></h3>
+                                <ul>
+                                    <li>El juego consta de varias rondas de preguntas.</li>
+                                    <li>Cada ronda incluirá una pregunta aleatoria sobre un atajo de teclado de VSCODE.</li>
+                                    <li>Después de seleccionar una respuesta, recibirás retroalimentación inmediata sobre si tu respuesta fue correcta o incorrecta.</li>
+                                    <li>Al final de cada ronda, se mostrará tu puntaje actual y podrás ver tu estadística de aciertos hasta ese momento.</li>
+                                </ul>
+                                <h3><strong>Finalización del juego:</strong></h3>
+                                <ul>
+                                    <li>El juego continúa hasta que decidas salir.</li>
+                                    <li>Puedes salir del juego en cualquier momento y ver tu puntaje final junto con tu estadística de aciertos.</li>
+                                    <li>Intenta superar tu propio récord cada vez que juegues.</li>
+                                </ul>
+                                <h2>¡Disfruta el juego y diviértete aprendiendo los atajos de teclado de VSCODE!</h2>
         </div>
     </div>
 

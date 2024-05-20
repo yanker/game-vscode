@@ -1,9 +1,5 @@
 # Juego de Preguntas de VSCODE
 
-## Tiempo Efectivo 
-IA: 30 minutos
-yo: 30 minutos
-
 ## Issues
 - [x] Agregar un contador de numero de preguntas
 - [x] Agregar alertsmsg de bootstrap con la respuesta

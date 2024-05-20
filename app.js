@@ -85,6 +85,20 @@ function validateAnswer() {
   showStats(); // Llamar a la función para actualizar estadísticas
 }
 
+function setupButtons() {
+  document.querySelectorAll('.btn-value').forEach((button) => {
+    button.addEventListener('click', function () {
+      if (this.value == '') {
+        document.getElementById('answer').value = this.value;
+      } else {
+        document.getElementById('answer').value += this.value;
+      }
+      // Focus
+      document.getElementById('answer').focus();
+    });
+  });
+}
+
 function showAlert(message, type) {
   const alertDiv = document.createElement('div');
   alertDiv.classList.add('alert', 'alert-' + type, 'alert-dismissible', 'fade', 'show');
@@ -113,8 +127,11 @@ function showMessage(message) {
 }
 
 function showStats() {
+  let accuracy = 0;
   const totalQuestions = correctAnswers + incorrectAnswers;
-  const accuracy = ((correctAnswers / totalQuestions) * 100).toFixed(2);
+  if (totalQuestions > 0) {
+    accuracy = ((correctAnswers / totalQuestions) * 100).toFixed(2);
+  }
 
   document.getElementById('correct').innerText = `Respuestas correctas: ${correctAnswers}`;
   document.getElementById('incorrect').innerText = `Respuestas incorrectas: ${incorrectAnswers}`;
@@ -125,24 +142,6 @@ function showStats() {
   document.getElementById('question-counter').innerText = `Pregunta ${currentQuestionNumber} de ${questions.length}`;
 }
 
-document.getElementById('answer').addEventListener('keydown', function (event) {
-  if (event.key === 'Enter') {
-    return;
-  }
-  let keyCombination = '';
-
-  if (event.ctrlKey) keyCombination += 'Ctrl + ';
-  if (event.altKey) keyCombination += 'Alt + ';
-  if (event.shiftKey) keyCombination += 'Shift + ';
-
-  keyCombination += event.key;
-
-  event.target.value = keyCombination;
-
-  // Prevenir el comportamiento predeterminado para evitar que la combinación de teclas se inserte en el campo
-  event.preventDefault();
-});
-
 document.getElementById('answer').addEventListener('keypress', function (event) {
   if (event.key === 'Enter') {
     validateAnswer();
@@ -150,3 +149,4 @@ document.getElementById('answer').addEventListener('keypress', function (event) 
 });
 
 loadQuestions();
+setupButtons();
