@@ -66,6 +66,10 @@
             <div class="card-body">
                 <h5 class="card-title"><strong>Instrucciones</strong></h5>
                 <p class="card-text">Se generarán preguntas aleatorias sobre los atajos de teclado de Visual Studio Code. Escribe tu respuesta y valida si es correcta.</p>
+                <h5 class="card-title"><strong>Elige Sistema Operativo</strong></h5>
+                <button class="btn btn-primary me-1" onclick="loadQuestions('windows')"><i class="bi bi-windows"></i> Windows</button>
+                <button class="btn btn-secondary me-1" onclick="loadQuestions('mac')"><i class="bi bi-apple"></i> Mac</button>
+                <button class="btn btn-dark" onclick="loadQuestions('linux')"><i class="bi bi-ubuntu"></i> Linux</button>
             </div>
         </div>
 
@@ -74,6 +78,7 @@
                 <div class="card m-1">
                     <div class="card-body">
                         <h5 class="card-title"><strong>Pregunta</strong></h5>
+                        <button class="btn btn-primary float-end ms-1" onclick="generateOtherCuestion()">Siguiente Pregunta</button>
                         <h4 class="card-text text-primary" id="question">Haz clic en el botón para obtener una pregunta.</h4>
                         <!-- Input Textbox -->
                         <input type="text" id="answer" class="form-control mb-3" placeholder="Escribe tu respuesta aquí y pulsa ENTER">
@@ -89,10 +94,6 @@
                             <button type="button" class="btn btn-secondary btn-value" value="Alt + ">Alt</button>
                             <button type="button" class="btn btn-secondary btn-value" value="Shift + ">Shift</button>
                             <button type="button" class="btn btn-secondary btn-value" value="Tab + ">Tab</button>
-                            <!-- <button type="button" class="btn btn-secondary btn-value" value="Escape + ">Escape</button>
-                                                                                                                                                    <button type="button" class="btn btn-secondary btn-value" value="Backspace + ">Backspace</button>
-                                                                                                                                                    <button type="button" class="btn btn-secondary btn-value" value="Enter + ">Enter</button>
-                                                                                                                                                    <button type="button" class="btn btn-secondary btn-value" value="Space + ">Space</button> -->
                         </div>
                         <h5 class="float-end">
                             <p id="question-counter">Pregunta 1</p>

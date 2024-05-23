@@ -19,8 +19,8 @@ function toggleInstrucciones() {
   }
 }
 
-function loadQuestions() {
-  fetch('questions.json')
+function loadQuestions(so = 'windows') {
+  fetch(`system/${so}.json`) // fijarse en las comillas que solo funcionan los  literales con comillas inversas
     .then((response) => response.json())
     .then((data) => {
       questions = data;
@@ -30,11 +30,17 @@ function loadQuestions() {
     .catch((error) => console.error('Error al cargar las preguntas:', error));
 }
 
-function generateRandomQuestion() {
+function generateOtherCuestion(param) {
+  generateRandomQuestion('new question');
+  incorrectAnswers++;
+  showStats();
+}
+
+function generateRandomQuestion(param) {
   if (!initialQuestionDisplayed) {
     initialQuestionDisplayed = true;
   } else {
-    if (document.getElementById('answer').value.trim() === '') {
+    if (document.getElementById('answer').value.trim() === '' && param === undefined) {
       return;
     }
   }
@@ -64,6 +70,28 @@ function generateRandomQuestion() {
   document.getElementById('answer').focus();
   currentQuestionIndex = randomIndex;
 }
+
+function showStats() {
+  let accuracy = 0;
+  const totalQuestions = correctAnswers + incorrectAnswers;
+  if (totalQuestions > 0) {
+    accuracy = ((correctAnswers / totalQuestions) * 100).toFixed(2);
+  }
+
+  document.getElementById('correct').innerText = `Respuestas correctas: ${correctAnswers}`;
+  document.getElementById('incorrect').innerText = `Respuestas incorrectas: ${incorrectAnswers}`;
+  document.getElementById('accuracy').innerText = `Porcentaje de acierto: ${accuracy}%`;
+
+  const remainingQuestions = questions.length - totalQuestions;
+  const currentQuestionNumber = totalQuestions + 1;
+  document.getElementById('question-counter').innerText = `Pregunta ${currentQuestionNumber} de ${questions.length}`;
+}
+
+document.getElementById('answer').addEventListener('keypress', function (event) {
+  if (event.key === 'Enter') {
+    validateAnswer();
+  }
+});
 
 function validateAnswer() {
   const userAnswer = document.getElementById('answer').value.trim().toUpperCase(); // Convertir la respuesta a mayúsculas
@@ -126,27 +154,7 @@ function showMessage(message) {
   setTimeout(generateRandomQuestion, 3000);
 }
 
-function showStats() {
-  let accuracy = 0;
-  const totalQuestions = correctAnswers + incorrectAnswers;
-  if (totalQuestions > 0) {
-    accuracy = ((correctAnswers / totalQuestions) * 100).toFixed(2);
-  }
 
-  document.getElementById('correct').innerText = `Respuestas correctas: ${correctAnswers}`;
-  document.getElementById('incorrect').innerText = `Respuestas incorrectas: ${incorrectAnswers}`;
-  document.getElementById('accuracy').innerText = `Porcentaje de acierto: ${accuracy}%`;
-
-  const remainingQuestions = questions.length - totalQuestions;
-  const currentQuestionNumber = totalQuestions + 1;
-  document.getElementById('question-counter').innerText = `Pregunta ${currentQuestionNumber} de ${questions.length}`;
-}
-
-document.getElementById('answer').addEventListener('keypress', function (event) {
-  if (event.key === 'Enter') {
-    validateAnswer();
-  }
-});
 
 loadQuestions();
 setupButtons();
