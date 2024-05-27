@@ -84,7 +84,9 @@ function showStats() {
 
   const remainingQuestions = questions.length - totalQuestions;
   const currentQuestionNumber = totalQuestions + 1;
-  document.getElementById('question-counter').innerText = `Pregunta ${currentQuestionNumber} de ${questions.length}`;
+  if (currentQuestionNumber <= questions.length) {
+    document.getElementById('question-counter').innerText = `Pregunta ${currentQuestionNumber} de ${questions.length}`;
+  }
 }
 
 document.getElementById('answer').addEventListener('keypress', function (event) {
