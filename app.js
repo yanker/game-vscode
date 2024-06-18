@@ -109,6 +109,8 @@ function validateAnswer() {
     showAlert('Correcto! La respuesta es ' + correctAnswer, 'success');
   } else {
     incorrectAnswers++;
+    console.log(userAnswer);
+    console.log(correctAnswer);
     showAlert('Incorrecto. La respuesta correcta es ' + correctAnswer, 'danger');
   }
 
@@ -156,7 +158,38 @@ function showMessage(message) {
   setTimeout(generateRandomQuestion, 3000);
 }
 
+function writeKeyToInput(event) {
+  let input = document.getElementById('answer');
+  if (document.activeElement === input) {
+    event.preventDefault(); // Previene el comportamiento predeterminado
+    if (event.key === 'Delete') {
+      input.value = '';
+    } else if (event.key === 'Enter') {
+      deleteLastPlus();
+      validateAnswer();
+    } else if (event.key === 'Backspace') {
+      input.value = input.value.slice(0, -1);
+    } else if (event.key === 'Control') {
+      input.value += 'CTRL + ';
+    } else if (event.key === 'Alt') {
+      input.value += 'ALT + ';
+    } else if (event.key === 'Shift') {
+      input.value += 'SHIFT + ';
+    } else {
+      input.value += event.key + ' + ';
+    }
+    input.value = input.value.toUpperCase();
+  }
+}
 
+function deleteLastPlus() {
+  let input = document.getElementById('answer');
+  if (document.activeElement === input && input.value.endsWith(' + ')) {
+    input.value = input.value.slice(0, -3);
+  }
+}
+
+document.addEventListener('keydown', writeKeyToInput);
 
 loadQuestions();
 setupButtons();

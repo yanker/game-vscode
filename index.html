@@ -70,6 +70,10 @@
                 <button class="btn btn-primary me-1" onclick="loadQuestions('windows')"><i class="bi bi-windows"></i> Windows</button>
                 <button class="btn btn-secondary me-1" onclick="loadQuestions('mac')" disabled><i class="bi bi-apple"></i> Mac</button>
                 <button class="btn btn-dark" onclick="loadQuestions('linux')" disabled><i class="bi bi-ubuntu"></i> Linux</button>
+                <h5 class="card-title"><strong>Notas</strong></h5>
+                <ul>
+                    <li>Puedes limpiar la caja de texto pulsando DEL o BACKSPACE</li>
+                </ul>
             </div>
         </div>
 
@@ -81,7 +85,7 @@
                         <button class="btn btn-outline-primary float-end ms-1 mb-2" onclick="generateOtherCuestion()">Siguiente Pregunta</button>
                         <h4 class="card-text text-primary" id="question">Haz clic en el botón para obtener una pregunta.</h4>
                         <!-- Input Textbox -->
-                        <input type="text" id="answer" class="form-control mb-3" placeholder="Escribe tu respuesta aquí y pulsa ENTER">
+                        <input type="text" id="answer" class="form-control mb-3" placeholder="Escribe tu respuesta aquí y pulsa ENTER" autocomplete="off">
                         <h5 class="float-start">
                             <p id="question-counter">Pregunta 1</p>
                         </h5>

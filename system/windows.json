@@ -12,7 +12,8 @@
   { "question": "Va a la línea del error o warning", "answer": "F8" },
   { "question": "Va a la línea del anterior del error o warning", "answer": "Shift + F8" },
   { "question": "Abrir sugerencias de codificación", "answer": "Ctrl + Space" },
-  { "question": "Cerrar Editor", "answer": "Ctrl + F4, Ctrl + W" },
+  { "question": "Cerrar Editor", "answer": "Ctrl + W" },
+  { "question": "Cerrar Editor Forma 2", "answer": "Ctrl + F4" },
   { "question": "Dividir Editor", "answer": "Ctrl + /" },
   { "question": "Abre un cuadro de dialogo de CODEIUM", "answer": "Ctrl + i" }
 ]
