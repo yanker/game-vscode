@@ -5,20 +5,6 @@ let correctAnswers = 0;
 let incorrectAnswers = 0;
 let initialQuestionDisplayed = false;
 
-function toggleInstrucciones() {
-  const instrucciones = document.getElementById('instrucciones');
-  const juego = document.getElementById('juego');
-  if (instrucciones.style.display === 'none') {
-    console.log('dentro');
-    instrucciones.style.display = 'block';
-    juego.style.display = 'none';
-  } else {
-    console.log('fuera');
-    instrucciones.style.display = 'none';
-    juego.style.display = 'block';
-  }
-}
-
 function loadQuestions(so = 'windows') {
   fetch(`system/${so}.json`) // fijarse en las comillas que solo funcionan los  literales con comillas inversas
     .then((response) => response.json())
